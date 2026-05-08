@@ -84,3 +84,32 @@ body {
   border-radius: 2px;
   margin: 12px auto 0;
 }
+
+/* Blog prose styles */
+.prose-content h1,
+.prose-content h2,
+.prose-content h3 {
+  font-family: var(--font-bebas-neue, 'Bebas Neue', sans-serif);
+  color: var(--green-deep);
+  letter-spacing: 0.04em;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.1;
+}
+.prose-content h1 { font-size: 2.2rem; }
+.prose-content h2 { font-size: 1.8rem; }
+.prose-content h3 { font-size: 1.4rem; }
+.prose-content p {
+  margin-bottom: 1.1rem;
+  line-height: 1.75;
+  font-size: 1rem;
+}
+.prose-content ul,
+.prose-content ol {
+  margin: 0.75rem 0 1.1rem 1.5rem;
+  line-height: 1.75;
+}
+.prose-content li { margin-bottom: 0.4rem; }
+.prose-content strong { color: var(--green-deep); font-weight: 700; }
+.prose-content a { color: var(--green-mid); text-decoration: underline; }
+.prose-content a:hover { color: var(--green-deep); }

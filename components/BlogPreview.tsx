@@ -86,12 +86,13 @@ export default function BlogPreview() {
                   <p className="text-sm leading-relaxed mb-4" style={{ color: "#555555" }}>
                     {post.excerpt}
                   </p>
-                  <span
-                    className="text-sm font-bold inline-flex items-center gap-1"
+                  <a
+                    href={`/blog/${post.slug}`}
+                    className="text-sm font-bold inline-flex items-center gap-1 hover:underline"
                     style={{ color: "var(--green-bright)" }}
                   >
-                    Coming Soon →
-                  </span>
+                    Read More →
+                  </a>
                 </div>
               </article>
             );

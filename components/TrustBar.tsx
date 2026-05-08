@@ -1,57 +1,68 @@
 import { businessInfo } from "@/data/site-data";
 
+const items = [
+  { icon: "⭐", label: "5-Star Google Reviews", href: businessInfo.googleReviews },
+  { icon: "✓", label: "Licensed & Insured" },
+  { icon: "✓", label: "Free Estimates" },
+  { icon: "📍", label: "NE Ohio · 40-Mile Radius" },
+];
+
 export default function TrustBar() {
   return (
-    <section
-      className="w-full py-5 px-4"
-      style={{ backgroundColor: "#ffffff", borderBottom: "2px solid var(--green-bright)" }}
+    <div
+      className="w-full px-4 py-2.5"
+      style={{ backgroundColor: "#ffffff", borderBottom: "1.5px solid var(--green-bright)" }}
     >
-      <div className="max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="max-w-4xl mx-auto flex items-center justify-center flex-wrap gap-x-1 gap-y-1">
+        {items.map((item, i) => {
+          const content = (
+            <span className="flex items-center gap-1.5">
+              <span style={{ fontSize: "0.85rem" }}>{item.icon}</span>
+              <span
+                style={{
+                  fontFamily: "var(--font-dm-sans, 'DM Sans', sans-serif)",
+                  fontSize: "0.72rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.06em",
+                  textTransform: "uppercase",
+                  color: "var(--green-deep)",
+                }}
+              >
+                {item.label}
+              </span>
+            </span>
+          );
 
-        {/* Clickable Google Reviews */}
-        <a
-          href={businessInfo.googleReviews}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center gap-3 px-3 py-4 rounded-xl min-h-[72px] transition-colors hover:bg-green-50"
-          style={{ backgroundColor: "#ffffff", border: "2px solid var(--green-bright)", textDecoration: "none" }}
-        >
-          <span className="text-xl">⭐⭐⭐⭐⭐</span>
-          <span
-            className="font-bold uppercase tracking-wide text-center"
-            style={{
-              fontFamily: "var(--font-bebas-neue, 'Bebas Neue', sans-serif)",
-              fontSize: "clamp(0.75rem, 3.2vw, 1rem)",
-              letterSpacing: "0.06em",
-              color: "var(--green-deep)",
-              lineHeight: "1.2",
-            }}
-          >
-            5-Star Google Reviews
-          </span>
-        </a>
-
-        {/* Service area — static */}
-        <div
-          className="flex items-center justify-center gap-3 px-3 py-4 rounded-xl min-h-[72px]"
-          style={{ backgroundColor: "#ffffff", border: "2px solid var(--green-bright)" }}
-        >
-          <span className="text-xl">📍</span>
-          <span
-            className="font-bold uppercase tracking-wide text-center"
-            style={{
-              fontFamily: "var(--font-bebas-neue, 'Bebas Neue', sans-serif)",
-              fontSize: "clamp(0.75rem, 3.2vw, 1rem)",
-              letterSpacing: "0.06em",
-              color: "var(--green-deep)",
-              lineHeight: "1.2",
-            }}
-          >
-            Serving NE Ohio — 40-Mile Radius
-          </span>
-        </div>
-
+          return (
+            <span key={item.label} className="flex items-center gap-1">
+              {item.href ? (
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-1 rounded-full transition-colors hover:bg-green-50"
+                  style={{
+                    border: "1px solid rgba(114,204,53,0.4)",
+                    textDecoration: "none",
+                  }}
+                >
+                  {content}
+                </a>
+              ) : (
+                <span
+                  className="px-3 py-1 rounded-full"
+                  style={{ border: "1px solid rgba(114,204,53,0.4)" }}
+                >
+                  {content}
+                </span>
+              )}
+              {i < items.length - 1 && (
+                <span style={{ color: "rgba(114,204,53,0.4)", fontSize: "0.8rem", margin: "0 2px" }}>·</span>
+              )}
+            </span>
+          );
+        })}
       </div>
-    </section>
+    </div>
   );
 }

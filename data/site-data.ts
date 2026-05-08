@@ -6,6 +6,7 @@ export const businessInfo = {
   serviceArea: "Greater Cleveland, NE Ohio — 40-Mile Radius",
   facebook: "https://www.facebook.com/people/Big-Creek-Tree-Service/61568943713888/",
   address: "Northeast Ohio",
+  googleReviews: "https://www.google.com/maps/search/Big+Creek+Tree+Service+Cleveland+Ohio",
 };
 
 export const services = [

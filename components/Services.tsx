@@ -73,10 +73,10 @@ export default function Services() {
 
         {/* Services Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {services.map((service) => (
+          {services.map((service, index) => (
             <div
               key={service.slug}
-              className="group rounded-xl flex flex-col transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
+              className={`group rounded-xl flex flex-col transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl${index === services.length - 1 && services.length % 2 !== 0 ? " col-span-2 sm:col-span-1" : ""}`}
               style={{
                 backgroundColor: "#ffffff",
                 border: "2px solid rgba(255,255,255,0.9)",

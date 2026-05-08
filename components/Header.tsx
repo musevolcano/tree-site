@@ -86,7 +86,7 @@ export default function Header() {
 
         {/* Hamburger */}
         <button
-          className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5"
+          className="md:hidden flex flex-col justify-center items-center w-11 h-11 gap-1.5"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
@@ -103,7 +103,7 @@ export default function Header() {
       {menuOpen && (
         <div className="md:hidden w-full py-5 px-6 flex flex-col gap-4" style={{ backgroundColor: "var(--white)", borderTop: "1px solid var(--sand)" }}>
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href} className="text-base font-semibold py-1" style={{ color: "var(--black)" }} onClick={() => setMenuOpen(false)}>
+            <a key={link.href} href={link.href} className="text-base font-semibold py-2.5" style={{ color: "var(--black)" }} onClick={() => setMenuOpen(false)}>
               {link.label}
             </a>
           ))}

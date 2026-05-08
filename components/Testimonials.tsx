@@ -127,19 +127,24 @@ export default function Testimonials() {
         {/* Mobile: full carousel */}
         <div className="md:hidden">
           <TestimonialCard t={testimonials[active]} />
-          <div className="flex justify-center items-center gap-2 mt-5">
+          <div className="flex justify-center items-center gap-1 mt-5">
             {testimonials.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setActive(i)}
-                className="rounded-full transition-all duration-200"
-                style={{
-                  width: i === active ? "24px" : "10px",
-                  height: "10px",
-                  backgroundColor: i === active ? "var(--green-bright)" : "rgba(255,255,255,0.35)",
-                }}
+                className="flex items-center justify-center transition-all duration-200"
+                style={{ width: "44px", height: "44px", background: "transparent", padding: 0 }}
                 aria-label={`Review ${i + 1}`}
-              />
+              >
+                <span
+                  className="rounded-full block transition-all duration-200"
+                  style={{
+                    width: i === active ? "24px" : "10px",
+                    height: "10px",
+                    backgroundColor: i === active ? "var(--green-bright)" : "rgba(255,255,255,0.35)",
+                  }}
+                />
+              </button>
             ))}
           </div>
         </div>

@@ -15,7 +15,7 @@ export default function Hero() {
 
 
       {/* Hero content */}
-      <div className="relative z-10 flex flex-col items-start justify-end flex-1 px-6 md:px-16 lg:px-24 pb-8 md:pb-24">
+      <div className="relative z-10 flex flex-col items-start justify-end flex-1 px-6 md:px-16 lg:px-24 pb-20 md:pb-24">
         <div className="max-w-2xl">
           <p className="hidden md:inline-block" style={{
             fontFamily: "var(--font-dm-sans, 'DM Sans', sans-serif)",

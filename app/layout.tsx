@@ -57,7 +57,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${bebasNeue.variable} ${dmSans.variable}`}>
-      <body className="min-h-screen antialiased">{children}</body>
+      <body className="min-h-screen antialiased pb-16 md:pb-0">{children}</body>
     </html>
   );
 }

@@ -170,7 +170,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <TrustBar />
+        {/* <TrustBar /> */}
         <Services />
         <About />
         <Testimonials />

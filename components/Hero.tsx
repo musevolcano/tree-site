@@ -14,8 +14,8 @@ export default function Hero() {
       <div className="absolute inset-0 hero-overlay" aria-hidden="true" />
 
 
-      {/* Hero content — top on mobile, bottom on desktop */}
-      <div className="relative z-10 flex flex-col items-start justify-start md:justify-end flex-1 px-6 md:px-16 lg:px-24 pt-20 md:pt-0 pb-0 md:pb-24">
+      {/* Hero content */}
+      <div className="relative z-10 flex flex-col items-start justify-end flex-1 px-6 md:px-16 lg:px-24 pb-8 md:pb-24">
         <div className="max-w-2xl">
           <p className="hidden md:inline-block" style={{
             fontFamily: "var(--font-dm-sans, 'DM Sans', sans-serif)",

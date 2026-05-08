@@ -31,16 +31,16 @@ export default function Header() {
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
           >
-            <polygon points="50,4 34,28 66,28" fill="#3E8018" />
-            <polygon points="50,14 22,48 78,48" fill="#3E8018" />
-            <polygon points="50,28 10,70 90,70" fill="#3E8018" />
-            <rect x="42" y="69" width="16" height="26" rx="4" fill="#72CC35" />
+            <polygon points="50,4 34,28 66,28" fill="#0a3d24" />
+            <polygon points="50,14 22,48 78,48" fill="#0a3d24" />
+            <polygon points="50,28 10,70 90,70" fill="#0a3d24" />
+            <rect x="42" y="69" width="16" height="26" rx="4" fill="#0a3d24" />
           </svg>
           {/* Text wordmark */}
           <div className="flex flex-col items-start">
             <span style={{
               fontFamily: "var(--font-bebas-neue, 'Bebas Neue', sans-serif)",
-              color: "var(--green-deep)",
+              color: "#0a3d24",
               letterSpacing: "0.07em",
               fontSize: "1.7rem",
               lineHeight: 1,
@@ -49,7 +49,7 @@ export default function Header() {
             </span>
             <span style={{
               fontFamily: "var(--font-bebas-neue, 'Bebas Neue', sans-serif)",
-              color: "var(--green-mid)",
+              color: "#0a3d24",
               letterSpacing: "0.07em",
               fontSize: "1.28rem",
               lineHeight: 1,

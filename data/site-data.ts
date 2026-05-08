@@ -86,22 +86,34 @@ export const services = [
 
 export const testimonials = [
   {
-    name: "John D.",
-    location: "Strongsville, OH",
+    name: "Tony Bee",
+    location: "Google Review · a month ago",
     rating: 5,
-    text: "Big Creek took down a massive oak that had me worried for years. Professional crew, fair price, cleaned up every last branch. Couldn't be happier.",
+    text: "Amazing tree service in north east Ohio! My tree was down so they prioritized me and came out the same day and worked until the job was finished.",
   },
   {
-    name: "Emily R.",
-    location: "Parma, OH",
+    name: "Sebastian Halloway",
+    location: "Google Review · recently",
     rating: 5,
-    text: "Called them after a storm took out a huge limb over my roof. They were out the same day, had everything cleared by evening. Lifesavers.",
+    text: "They did an outstanding job demolishing my old garage. The haul-away was flawless, and the cleanup was incredible. Not a single nail was left in my yard!",
   },
   {
-    name: "Mike T.",
-    location: "Berea, OH",
+    name: "Acyuta KD",
+    location: "Google Review · a month ago",
     rating: 5,
-    text: "Used them for stump grinding and land clearing on a new lot. Showed up on time, finished ahead of schedule. Will call them for everything tree-related.",
+    text: "Great value in town! I got a few bids and they landed right where I needed to be for all my ongoing tree maintenance needs. And I have a lot!",
+  },
+  {
+    name: "Joseph Bronczyk",
+    location: "Google Review · 2 weeks ago",
+    rating: 5,
+    text: "Very good service — on time, courteous, patient, and cleaned up the job site completely.",
+  },
+  {
+    name: "Bea",
+    location: "Google Review · a month ago",
+    rating: 5,
+    text: "Highly recommended.",
   },
 ];
 

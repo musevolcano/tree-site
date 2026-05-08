@@ -21,26 +21,42 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
 
-        {/* Logo — centered text stack */}
-        <Link href="/" className="flex flex-col items-center leading-none select-none">
-          <span style={{
-            fontFamily: "var(--font-bebas-neue, 'Bebas Neue', sans-serif)",
-            color: "var(--green-deep)",
-            letterSpacing: "0.07em",
-            fontSize: "1.7rem",
-            lineHeight: 1,
-          }}>
-            BIG CREEK
-          </span>
-          <span style={{
-            fontFamily: "var(--font-bebas-neue, 'Bebas Neue', sans-serif)",
-            color: "var(--green-deep)",
-            letterSpacing: "0.07em",
-            fontSize: "1.28rem",
-            lineHeight: 1,
-          }}>
-            TREE SERVICE
-          </span>
+        {/* Logo — icon + text wordmark */}
+        <Link href="/" className="flex items-center gap-2.5 leading-none select-none">
+          {/* Tree mark icon */}
+          <svg
+            width="36"
+            height="40"
+            viewBox="0 0 100 115"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <polygon points="50,4 34,28 66,28" fill="#3E8018" />
+            <polygon points="50,14 22,48 78,48" fill="#3E8018" />
+            <polygon points="50,28 10,70 90,70" fill="#3E8018" />
+            <rect x="42" y="69" width="16" height="26" rx="4" fill="#72CC35" />
+          </svg>
+          {/* Text wordmark */}
+          <div className="flex flex-col items-start">
+            <span style={{
+              fontFamily: "var(--font-bebas-neue, 'Bebas Neue', sans-serif)",
+              color: "var(--green-deep)",
+              letterSpacing: "0.07em",
+              fontSize: "1.7rem",
+              lineHeight: 1,
+            }}>
+              BIG CREEK
+            </span>
+            <span style={{
+              fontFamily: "var(--font-bebas-neue, 'Bebas Neue', sans-serif)",
+              color: "var(--green-mid)",
+              letterSpacing: "0.07em",
+              fontSize: "1.28rem",
+              lineHeight: 1,
+            }}>
+              TREE SERVICE
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Nav */}

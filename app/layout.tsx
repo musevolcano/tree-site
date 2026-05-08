@@ -31,14 +31,6 @@ export const metadata: Metadata = {
       "Greater Cleveland's #1 tree & land service. Licensed & insured — tree removal, stump grinding, land clearing, 24/7 storm response. Free estimates.",
     url: "https://www.bigcreektreeservice.com",
     siteName: "Big Creek Tree Service",
-    images: [
-      {
-        url: "/images/hero.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Big Creek Tree Service — NE Ohio Tree Removal & Land Clearing",
-      },
-    ],
     locale: "en_US",
     type: "website",
   },
@@ -47,7 +39,6 @@ export const metadata: Metadata = {
     title: "Big Creek Tree Service | Cleveland Ohio Tree Removal",
     description:
       "Greater Cleveland's #1 tree & land service. Free estimates. 24/7 storm response. Call 216-551-6445.",
-    images: ["/images/hero.jpg"],
   },
   robots: {
     index: true,

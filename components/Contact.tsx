@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Phone, Mail, MapPin, Facebook, CheckCircle } from "lucide-react";
+import { Phone, Mail, MapPin, CheckCircle } from "lucide-react";
 import { businessInfo, services } from "@/data/site-data";
 
 // ─── Formspree ───────────────────────────────────────────────────────────────
@@ -124,7 +124,10 @@ export default function Contact() {
               <div className="flex items-start gap-3">
                 <div className="flex items-center justify-center rounded-full flex-shrink-0 mt-0.5"
                   style={{ width: "36px", height: "36px", backgroundColor: "rgba(114,204,53,0.15)" }}>
-                  <Facebook size={16} style={{ color: "var(--green-deep)" }} />
+                  {/* Facebook icon — inline SVG (not in lucide-react) */}
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ color: "var(--green-deep)" }}>
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
                 </div>
                 <div>
                   <p className="text-xs font-bold uppercase tracking-wider mb-0.5" style={{ color: "var(--green-deep)" }}>Facebook</p>

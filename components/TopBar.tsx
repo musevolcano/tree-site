@@ -4,7 +4,7 @@ import { businessInfo } from "@/data/site-data";
 export default function TopBar() {
   return (
     <div
-      className="w-full py-2.5 px-6"
+      className="hidden md:block w-full py-2.5 px-6"
       style={{ backgroundColor: "var(--green-bright)", color: "#ffffff" }}
     >
       <div className="max-w-7xl mx-auto grid grid-cols-3 items-center">
@@ -31,7 +31,7 @@ export default function TopBar() {
             color: "#ffffff",
           }}
         >
-          Call Today — Free Quotes on Spring Deals!
+          Licensed & Insured — Free Quotes
         </span>
 
         {/* Right: phone | hours | facebook */}

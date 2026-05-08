@@ -36,7 +36,7 @@ export default function Services() {
         backgroundImage: "url('/images/hero.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
-        backgroundAttachment: "fixed",
+        backgroundAttachment: "scroll",
       }}
     >
       {/* Green overlay */}
@@ -72,7 +72,7 @@ export default function Services() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {services.map((service) => (
             <div
               key={service.slug}
@@ -83,13 +83,13 @@ export default function Services() {
               }}
             >
               {/* Icon block */}
-              <div className="flex items-center justify-center pt-7 pb-3 relative">
+              <div className="flex items-center justify-center pt-5 pb-2 relative">
                 <div
                   className="flex items-center justify-center rounded-full"
                   style={{
                     backgroundColor: "var(--green-bright)",
-                    width: "72px",
-                    height: "72px",
+                    width: "56px",
+                    height: "56px",
                     color: "#ffffff",
                   }}
                 >
@@ -106,7 +106,7 @@ export default function Services() {
               </div>
 
               {/* Card body */}
-              <div className="px-6 pb-7 flex flex-col flex-1 text-center">
+              <div className="px-3 pb-5 flex flex-col flex-1 text-center md:px-6 md:pb-7">
                 <h3
                   className="mb-2"
                   style={{

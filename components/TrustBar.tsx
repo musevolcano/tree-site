@@ -9,7 +9,7 @@ export default function TrustBar() {
       className="w-full py-5 px-4"
       style={{ backgroundColor: "#ffffff", borderBottom: "2px solid var(--green-bright)" }}
     >
-      <div className="max-w-3xl mx-auto grid grid-cols-2 gap-6">
+      <div className="max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4">
         {items.map((item) => (
           <div
             key={item.label}

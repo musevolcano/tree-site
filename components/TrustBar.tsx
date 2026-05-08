@@ -1,7 +1,7 @@
 export default function TrustBar() {
   const items = [
     { icon: "⭐⭐⭐⭐⭐", label: "5-Star Google Reviews" },
-    { icon: "📍", label: "Proudly Serving Greater Cleveland & NE Ohio" },
+    { icon: "📍", label: "Serving NE Ohio — 40-Mile Radius" },
   ];
 
   return (
@@ -13,17 +13,18 @@ export default function TrustBar() {
         {items.map((item) => (
           <div
             key={item.label}
-            className="flex items-center justify-center gap-3 px-4 py-3 rounded-xl"
+            className="flex items-center justify-center gap-3 px-3 py-4 rounded-xl min-h-[72px]"
             style={{ backgroundColor: "#ffffff", border: "2px solid var(--green-bright)" }}
           >
             <span className="text-xl">{item.icon}</span>
             <span
-              className="font-bold text-sm uppercase tracking-wide"
+              className="font-bold uppercase tracking-wide text-center"
               style={{
                 fontFamily: "var(--font-bebas-neue, 'Bebas Neue', sans-serif)",
-                fontSize: "1rem",
-                letterSpacing: "0.08em",
+                fontSize: "clamp(0.75rem, 3.2vw, 1rem)",
+                letterSpacing: "0.06em",
                 color: "var(--green-deep)",
+                lineHeight: "1.2",
               }}
             >
               {item.label}

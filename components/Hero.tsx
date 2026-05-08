@@ -15,9 +15,9 @@ export default function Hero() {
 
 
       {/* Hero content */}
-      <div className="relative z-10 flex flex-col items-start justify-end flex-1 px-6 md:px-16 lg:px-24 pb-16 md:pb-24">
+      <div className="relative z-10 flex flex-col items-start justify-end flex-1 px-6 md:px-16 lg:px-24 pb-28 md:pb-24">
         <div className="max-w-2xl">
-          <p style={{
+          <p className="hidden md:inline-block" style={{
             fontFamily: "var(--font-dm-sans, 'DM Sans', sans-serif)",
             fontSize: "0.75rem",
             fontWeight: 700,
@@ -25,7 +25,6 @@ export default function Hero() {
             color: "var(--cream)",
             textTransform: "uppercase",
             backgroundColor: "rgba(28,58,10,0.55)",
-            display: "inline-block",
             padding: "3px 10px",
             borderRadius: "3px",
             marginBottom: "14px",
@@ -45,7 +44,7 @@ export default function Hero() {
             BIG CREEK<br />TREE SERVICE
           </h1>
           <p style={{ color: "#ffffff", fontSize: "1.05rem", lineHeight: 1.65, marginBottom: "32px", maxWidth: "500px", textShadow: "0 1px 8px rgba(0,0,0,0.6)" }}>
-            Licensed &amp; insured tree removal, stump grinding, land clearing, and 24/7 storm damage response. Serving Greater Cleveland for over a decade.
+            Greater Cleveland&apos;s #1 tree &amp; land service. Licensed &amp; insured — tree removal, stump grinding, land clearing, and 24/7 storm response.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <a href={businessInfo.phoneHref} style={{

@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import { testimonials, businessInfo } from "@/data/site-data";
 
-const INTERVAL = 6500;
+const INTERVAL = 5000;
 const FADE     = 650;
 const TOTAL    = testimonials.length;
 

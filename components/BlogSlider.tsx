@@ -26,7 +26,7 @@ const CATEGORY_LABELS: Record<string, string> = {
   "property-business": "Property & Business",
 };
 
-const INTERVAL = 6000;
+const INTERVAL = 5000;
 const FADE     = 650;
 
 export default function BlogSlider({ posts }: { posts: PostPreview[] }) {

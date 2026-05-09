@@ -97,7 +97,7 @@ export default function Testimonials() {
     return () => obs.disconnect();
   }, []);
 
-  const visibleCount = isMobile ? 2 : 3;
+  const visibleCount = isMobile ? 1 : 3;
 
   const [startIdx, setStartIdx] = useState(0);
   const [visible, setVisible]   = useState(true);

@@ -5,11 +5,11 @@ import { businessInfo } from "@/data/site-data";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Services", href: "#services" },
-  { label: "About", href: "#about" },
-  { label: "Reviews", href: "#reviews" },
+  { label: "Services", href: "/#services" },
+  { label: "About", href: "/#about" },
+  { label: "Reviews", href: "/#reviews" },
   { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Header() {

@@ -2,8 +2,8 @@
 
 :root {
   /* Brand greens — bright, vibrant, welcoming */
-  --green-deep: #3E8018;
-  --green-mid: #52A620;
+  --green-deep: #166534;
+  --green-mid: #1D8A50;
   --green-bright: #72CC35;
 
   /* Neutrals */
@@ -16,11 +16,11 @@
 
   /* UI System — no orange anywhere */
   --cta-bg: #FFFFFF;
-  --cta-text: #3E8018;
+  --cta-text: #166534;
   --cta-hover: #F4EFE6;
-  --cta-primary-bg: #52A620;
+  --cta-primary-bg: #1D8A50;
   --cta-primary-text: #FFFFFF;
-  --cta-primary-hover: #3E8018;
+  --cta-primary-hover: #166534;
 
   /* Badges / highlights — bright green, not orange */
   --badge: #72CC35;

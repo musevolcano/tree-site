@@ -14,7 +14,7 @@ export default function Image() {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          backgroundColor: "#3E8018",
+          backgroundColor: "#166534",
           position: "relative",
           overflow: "hidden",
         }}
@@ -107,7 +107,7 @@ export default function Image() {
           style={{
             width: "100%",
             height: "72px",
-            backgroundColor: "#2a5c10",
+            backgroundColor: "#0d4a26",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",

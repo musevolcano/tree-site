@@ -443,7 +443,13 @@ export default async function ServicePage({
       )}
 
       {/* ── BOTTOM CTA ───────────────────────────────────────────────── */}
-      <section className="w-full py-16 px-4 text-center" style={{ backgroundColor: "var(--green-deep)" }}>
+      <section
+        className="w-full py-16 px-4 text-center"
+        style={{
+          background:
+            "linear-gradient(to bottom, #1e7a42 0%, #166534 30%, #0d3d1e 70%, #111111 100%)",
+        }}
+      >
         <p
           className="mb-2"
           style={{

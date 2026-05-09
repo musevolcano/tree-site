@@ -88,185 +88,406 @@ export default async function ServicePage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Hero */}
+      {/* ── HERO ─────────────────────────────────────────────────────── */}
       <section
-        className="w-full py-14 px-4 text-center"
+        className="w-full py-16 px-4 text-center"
         style={{ backgroundColor: "var(--green-deep)" }}
       >
-        <nav className="flex items-center justify-center gap-2 text-xs mb-6" style={{ color: "rgba(255,255,255,0.55)" }} aria-label="Breadcrumb">
-          <Link href="/" style={{ color: "rgba(255,255,255,0.55)" }}>Home</Link>
+        <nav
+          className="flex items-center justify-center gap-2 text-xs mb-6"
+          style={{ color: "rgba(255,255,255,0.45)" }}
+          aria-label="Breadcrumb"
+        >
+          <Link href="/" style={{ color: "rgba(255,255,255,0.45)" }}>Home</Link>
           <span aria-hidden="true">›</span>
-          <Link href="/#services" style={{ color: "rgba(255,255,255,0.55)" }}>Services</Link>
+          <Link href="/#services" style={{ color: "rgba(255,255,255,0.45)" }}>Services</Link>
           <span aria-hidden="true">›</span>
           <span style={{ color: "rgba(255,255,255,0.9)" }}>{service.name}</span>
         </nav>
-        <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: "var(--green-bright)" }}>
+        <p
+          className="text-xs font-bold uppercase tracking-widest mb-3"
+          style={{ color: "var(--green-bright)" }}
+        >
           Big Creek Tree Service
         </p>
         <h1
-          className="leading-tight mb-4 max-w-3xl mx-auto"
+          className="leading-none mb-4 max-w-3xl mx-auto"
           style={{
             fontFamily: "var(--font-bebas-neue, 'Bebas Neue', sans-serif)",
-            fontSize: "clamp(2.2rem, 6vw, 4rem)",
+            fontSize: "clamp(2.6rem, 7vw, 4.5rem)",
             color: "#ffffff",
             letterSpacing: "0.04em",
           }}
         >
           {service.name}
         </h1>
-        <p className="text-sm max-w-xl mx-auto mb-8" style={{ color: "rgba(255,255,255,0.8)" }}>
+        <p className="text-base max-w-lg mx-auto mb-8" style={{ color: "rgba(255,255,255,0.75)" }}>
           {service.tagline}
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <a
             href={businessInfo.phoneHref}
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-bold min-h-[44px] transition-opacity hover:opacity-85"
-            style={{ backgroundColor: "var(--green-bright)", color: "#fff", fontFamily: "var(--font-bebas-neue)", fontSize: "1.05rem", letterSpacing: "0.08em" }}
+            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-bold min-h-[48px] transition-opacity hover:opacity-85"
+            style={{
+              backgroundColor: "var(--green-bright)",
+              color: "#fff",
+              fontFamily: "var(--font-bebas-neue)",
+              fontSize: "1.1rem",
+              letterSpacing: "0.08em",
+            }}
           >
             📞 CALL {businessInfo.phone}
           </a>
           <a
             href="/#contact"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-bold min-h-[44px] transition-opacity hover:opacity-85"
-            style={{ backgroundColor: "transparent", color: "#fff", border: "2px solid rgba(255,255,255,0.5)", fontFamily: "var(--font-bebas-neue)", fontSize: "1.05rem", letterSpacing: "0.08em" }}
+            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-bold min-h-[48px] transition-opacity hover:opacity-85"
+            style={{
+              backgroundColor: "rgba(255,255,255,0.1)",
+              color: "#fff",
+              border: "1.5px solid rgba(255,255,255,0.35)",
+              fontFamily: "var(--font-bebas-neue)",
+              fontSize: "1.1rem",
+              letterSpacing: "0.08em",
+            }}
           >
             GET FREE QUOTE
           </a>
         </div>
       </section>
 
-      {/* Body */}
-      <section className="max-w-3xl mx-auto px-4 py-12">
-        <div className="prose-content" style={{ color: "#333", fontSize: "1rem", lineHeight: "1.75" }}>
-          {service.body.split("\n\n").map((para, i) => (
-            <p key={i} className="mb-5">{para}</p>
-          ))}
-        </div>
-      </section>
-
-      {/* Process */}
-      <section className="max-w-3xl mx-auto px-4 pb-12">
-        <h2
-          className="mb-6"
-          style={{ fontFamily: "var(--font-bebas-neue, 'Bebas Neue', sans-serif)", fontSize: "1.8rem", color: "var(--green-deep)", letterSpacing: "0.04em" }}
-        >
-          How It Works
-        </h2>
-        <div className="flex flex-col gap-4">
-          {service.process.map((step, i) => (
-            <div
-              key={i}
-              className="flex gap-4 p-4 rounded-xl"
-              style={{ backgroundColor: "#ffffff", border: "1.5px solid rgba(114,204,53,0.2)", boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}
-            >
-              <div
-                className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm"
-                style={{ backgroundColor: "var(--green-deep)", color: "#fff" }}
-              >
-                {i + 1}
-              </div>
-              <div>
-                <p className="font-bold text-sm mb-0.5" style={{ color: "var(--green-deep)" }}>{step.step}</p>
-                <p className="text-sm" style={{ color: "#666" }}>{step.detail}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="max-w-3xl mx-auto px-4 pb-12">
-        <h2
-          className="mb-6"
-          style={{ fontFamily: "var(--font-bebas-neue, 'Bebas Neue', sans-serif)", fontSize: "1.8rem", color: "var(--green-deep)", letterSpacing: "0.04em" }}
-        >
-          Common Questions
-        </h2>
-        <div className="flex flex-col gap-4">
-          {service.faqs.map((faq, i) => (
-            <div
-              key={i}
-              className="p-5 rounded-xl"
-              style={{ backgroundColor: "#ffffff", border: "1.5px solid rgba(0,0,0,0.07)" }}
-            >
-              <p className="font-bold text-sm mb-2" style={{ color: "var(--green-deep)" }}>{faq.q}</p>
-              <p className="text-sm leading-relaxed" style={{ color: "#555" }}>{faq.a}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Related blog posts */}
-      {relatedPosts.length > 0 && (
-        <section className="max-w-3xl mx-auto px-4 pb-12">
-          <h2
-            className="mb-5"
-            style={{ fontFamily: "var(--font-bebas-neue, 'Bebas Neue', sans-serif)", fontSize: "1.8rem", color: "var(--green-deep)", letterSpacing: "0.04em" }}
+      {/* ── INTRO BODY ───────────────────────────────────────────────── */}
+      <section className="w-full py-14" style={{ backgroundColor: "#f8faf5" }}>
+        <div className="max-w-3xl mx-auto px-4">
+          <div
+            style={{
+              borderLeft: "4px solid var(--green-bright)",
+              paddingLeft: "1.5rem",
+            }}
           >
-            From the Blog
-          </h2>
-          <div className="flex flex-col gap-3">
-            {relatedPosts.map((post) => (
-              <Link
-                key={post.slug}
-                href={`/blog/${post.slug}`}
-                className="flex items-center justify-between p-4 rounded-xl transition-all hover:-translate-y-0.5 hover:shadow-md"
-                style={{ backgroundColor: "#ffffff", border: "1.5px solid rgba(114,204,53,0.2)", textDecoration: "none" }}
+            {service.body.split("\n\n").map((para, i) => (
+              <p
+                key={i}
+                className="mb-5 last:mb-0"
+                style={{ color: "#2d2d2d", fontSize: "1.05rem", lineHeight: "1.8" }}
               >
-                <div style={{ flex: 1, minWidth: 0, paddingRight: "1rem" }}>
-                  <p className="font-bold text-sm leading-snug" style={{ color: "var(--green-deep)" }}>{post.title}</p>
-                  <p className="text-xs mt-0.5" style={{ color: "#888" }}>{post.readingTime}</p>
+                {para}
+              </p>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── HOW IT WORKS ─────────────────────────────────────────────── */}
+      <section className="w-full py-16" style={{ backgroundColor: "#edf4e8" }}>
+        <div className="max-w-3xl mx-auto px-4">
+          <p
+            className="text-xs font-bold uppercase tracking-widest mb-2"
+            style={{ color: "var(--green-mid)" }}
+          >
+            The Process
+          </p>
+          <h2
+            className="mb-10"
+            style={{
+              fontFamily: "var(--font-bebas-neue, 'Bebas Neue', sans-serif)",
+              fontSize: "clamp(1.8rem, 4vw, 2.6rem)",
+              color: "var(--green-deep)",
+              letterSpacing: "0.04em",
+              lineHeight: 1,
+            }}
+          >
+            How It Works
+          </h2>
+
+          <div className="flex flex-col" style={{ gap: 0 }}>
+            {service.process.map((step, i) => (
+              <div key={i} className="flex gap-0" style={{ position: "relative" }}>
+                {/* Timeline spine */}
+                <div
+                  className="flex flex-col items-center"
+                  style={{ width: "56px", flexShrink: 0 }}
+                >
+                  {/* Circle */}
+                  <div
+                    className="flex items-center justify-center font-bold z-10"
+                    style={{
+                      width: "40px",
+                      height: "40px",
+                      borderRadius: "50%",
+                      backgroundColor: "var(--green-deep)",
+                      color: "#fff",
+                      fontSize: "1rem",
+                      fontFamily: "var(--font-bebas-neue, 'Bebas Neue', sans-serif)",
+                      letterSpacing: "0.04em",
+                      flexShrink: 0,
+                      boxShadow: "0 0 0 4px #edf4e8, 0 0 0 5px rgba(22,101,52,0.25)",
+                    }}
+                  >
+                    {i + 1}
+                  </div>
+                  {/* Connector line — hidden on last item */}
+                  {i < service.process.length - 1 && (
+                    <div
+                      style={{
+                        width: "2px",
+                        flexGrow: 1,
+                        minHeight: "32px",
+                        background: "repeating-linear-gradient(to bottom, var(--green-bright) 0px, var(--green-bright) 5px, transparent 5px, transparent 10px)",
+                        margin: "4px 0",
+                      }}
+                    />
+                  )}
                 </div>
-                <span className="flex-shrink-0 font-bold text-sm" style={{ color: "var(--green-bright)" }}>Read →</span>
-              </Link>
+
+                {/* Step content */}
+                <div
+                  className="rounded-xl mb-4"
+                  style={{
+                    flex: 1,
+                    backgroundColor: "#fff",
+                    border: "1px solid rgba(114,204,53,0.2)",
+                    padding: "1rem 1.25rem",
+                    marginLeft: "12px",
+                    boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
+                  }}
+                >
+                  <p
+                    className="font-bold mb-1"
+                    style={{ color: "var(--green-deep)", fontSize: "0.95rem" }}
+                  >
+                    {step.step}
+                  </p>
+                  <p style={{ color: "#666", fontSize: "0.875rem", lineHeight: "1.6" }}>
+                    {step.detail}
+                  </p>
+                </div>
+              </div>
             ))}
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
-      {/* Related services */}
-      {relatedServices.length > 0 && (
-        <section className="max-w-3xl mx-auto px-4 pb-12">
-          <h2
-            className="mb-5"
-            style={{ fontFamily: "var(--font-bebas-neue, 'Bebas Neue', sans-serif)", fontSize: "1.8rem", color: "var(--green-deep)", letterSpacing: "0.04em" }}
+      {/* ── COMMON QUESTIONS ─────────────────────────────────────────── */}
+      <section className="w-full py-16" style={{ backgroundColor: "#ffffff" }}>
+        <div className="max-w-3xl mx-auto px-4">
+          <p
+            className="text-xs font-bold uppercase tracking-widest mb-2"
+            style={{ color: "var(--green-mid)" }}
           >
-            Related Services
+            Quick Answers
+          </p>
+          <h2
+            className="mb-10"
+            style={{
+              fontFamily: "var(--font-bebas-neue, 'Bebas Neue', sans-serif)",
+              fontSize: "clamp(1.8rem, 4vw, 2.6rem)",
+              color: "var(--green-deep)",
+              letterSpacing: "0.04em",
+              lineHeight: 1,
+            }}
+          >
+            Common Questions
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {relatedServices.map((s) => (
-              <Link
-                key={s.slug}
-                href={`/services/${s.slug}`}
-                className="p-4 rounded-xl font-bold text-sm min-h-[44px] flex items-center justify-between transition-all hover:-translate-y-0.5 hover:shadow-md"
-                style={{ backgroundColor: "#ffffff", color: "var(--green-deep)", border: "1.5px solid rgba(114,204,53,0.25)", textDecoration: "none" }}
+
+          <div className="flex flex-col" style={{ gap: "0" }}>
+            {service.faqs.map((faq, i) => (
+              <div
+                key={i}
+                style={{
+                  borderLeft: "3px solid var(--green-bright)",
+                  paddingLeft: "1.25rem",
+                  paddingTop: "1rem",
+                  paddingBottom: "1rem",
+                  marginBottom: i < service.faqs.length - 1 ? "0" : "0",
+                  borderBottom: i < service.faqs.length - 1 ? "1px solid rgba(0,0,0,0.06)" : "none",
+                }}
               >
-                {s.name}
-                <span style={{ color: "var(--green-bright)" }}>→</span>
-              </Link>
+                <p
+                  className="font-bold mb-2"
+                  style={{ color: "var(--green-deep)", fontSize: "0.95rem" }}
+                >
+                  {faq.q}
+                </p>
+                <p style={{ color: "#555", fontSize: "0.9rem", lineHeight: "1.7" }}>
+                  {faq.a}
+                </p>
+              </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FROM THE BLOG ─────────────────────────────────────────────── */}
+      {relatedPosts.length > 0 && (
+        <section
+          className="w-full py-16"
+          style={{
+            background: "linear-gradient(145deg, #0a3d24 0%, #166534 50%, #1D8A50 100%)",
+          }}
+        >
+          <div className="max-w-3xl mx-auto px-4">
+            <p
+              className="text-xs font-bold uppercase tracking-widest mb-2"
+              style={{ color: "rgba(114,204,53,0.85)" }}
+            >
+              Related Reading
+            </p>
+            <h2
+              className="mb-8"
+              style={{
+                fontFamily: "var(--font-bebas-neue, 'Bebas Neue', sans-serif)",
+                fontSize: "clamp(1.8rem, 4vw, 2.6rem)",
+                color: "#ffffff",
+                letterSpacing: "0.04em",
+                lineHeight: 1,
+              }}
+            >
+              From the Blog
+            </h2>
+
+            <div className="flex flex-col gap-3">
+              {relatedPosts.map((post) => (
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="flex items-center justify-between rounded-xl transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
+                  style={{
+                    backgroundColor: "#ffffff",
+                    padding: "1.1rem 1.4rem",
+                    textDecoration: "none",
+                    boxShadow: "0 4px 20px rgba(0,0,0,0.18)",
+                  }}
+                >
+                  <div style={{ flex: 1, minWidth: 0, paddingRight: "1rem" }}>
+                    <p
+                      className="font-bold leading-snug mb-1"
+                      style={{ color: "var(--green-deep)", fontSize: "0.95rem" }}
+                    >
+                      {post.title}
+                    </p>
+                    <p style={{ color: "#999", fontSize: "0.75rem" }}>{post.readingTime}</p>
+                  </div>
+                  <span
+                    className="flex-shrink-0 font-bold text-sm"
+                    style={{
+                      color: "#fff",
+                      backgroundColor: "var(--green-bright)",
+                      padding: "0.35rem 0.85rem",
+                      borderRadius: "999px",
+                      fontSize: "0.75rem",
+                      letterSpacing: "0.04em",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    Read →
+                  </span>
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
       )}
 
-      {/* Bottom CTA */}
-      <section className="py-12 px-4 text-center" style={{ backgroundColor: "var(--green-deep)" }}>
+      {/* ── RELATED SERVICES ─────────────────────────────────────────── */}
+      {relatedServices.length > 0 && (
+        <section className="w-full py-16" style={{ backgroundColor: "#edf4e8" }}>
+          <div className="max-w-3xl mx-auto px-4">
+            <p
+              className="text-xs font-bold uppercase tracking-widest mb-2"
+              style={{ color: "var(--green-mid)" }}
+            >
+              See Also
+            </p>
+            <h2
+              className="mb-8"
+              style={{
+                fontFamily: "var(--font-bebas-neue, 'Bebas Neue', sans-serif)",
+                fontSize: "clamp(1.8rem, 4vw, 2.6rem)",
+                color: "var(--green-deep)",
+                letterSpacing: "0.04em",
+                lineHeight: 1,
+              }}
+            >
+              Related Services
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {relatedServices.map((s) => (
+                <Link
+                  key={s.slug}
+                  href={`/services/${s.slug}`}
+                  className="group flex items-center justify-between rounded-xl font-bold min-h-[52px] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
+                  style={{
+                    backgroundColor: "#fff",
+                    color: "var(--green-deep)",
+                    border: "1.5px solid rgba(22,101,52,0.12)",
+                    padding: "0.9rem 1.1rem",
+                    textDecoration: "none",
+                    fontSize: "0.875rem",
+                  }}
+                >
+                  <span>{s.name}</span>
+                  <span
+                    style={{
+                      color: "var(--green-bright)",
+                      fontSize: "1rem",
+                      transition: "transform 0.2s",
+                    }}
+                  >
+                    →
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── BOTTOM CTA ───────────────────────────────────────────────── */}
+      <section className="w-full py-16 px-4 text-center" style={{ backgroundColor: "var(--green-deep)" }}>
         <p
-          className="mb-1"
-          style={{ fontFamily: "var(--font-bebas-neue, 'Bebas Neue', sans-serif)", fontSize: "clamp(1.6rem, 4vw, 2.4rem)", color: "#fff", letterSpacing: "0.04em" }}
+          className="mb-2"
+          style={{
+            fontFamily: "var(--font-bebas-neue, 'Bebas Neue', sans-serif)",
+            fontSize: "clamp(1.8rem, 5vw, 2.8rem)",
+            color: "#fff",
+            letterSpacing: "0.04em",
+            lineHeight: 1,
+          }}
         >
           Ready for a Free Estimate?
         </p>
-        <p className="text-sm mb-5" style={{ color: "rgba(255,255,255,0.7)" }}>
+        <p className="text-sm mb-7 max-w-sm mx-auto" style={{ color: "rgba(255,255,255,0.65)" }}>
           Licensed &amp; insured. Serving Greater Cleveland and all of NE Ohio.
         </p>
-        <a
-          href={businessInfo.phoneHref}
-          className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-bold transition-opacity hover:opacity-85 min-h-[44px]"
-          style={{ backgroundColor: "var(--green-bright)", color: "#fff", fontFamily: "var(--font-bebas-neue)", fontSize: "1.15rem", letterSpacing: "0.08em" }}
-        >
-          📞 CALL {businessInfo.phone} — FREE ESTIMATE
-        </a>
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <a
+            href={businessInfo.phoneHref}
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold transition-opacity hover:opacity-85 min-h-[52px]"
+            style={{
+              backgroundColor: "var(--green-bright)",
+              color: "#fff",
+              fontFamily: "var(--font-bebas-neue)",
+              fontSize: "1.15rem",
+              letterSpacing: "0.08em",
+            }}
+          >
+            📞 CALL {businessInfo.phone} — FREE ESTIMATE
+          </a>
+          <a
+            href="/#contact"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold transition-opacity hover:opacity-85 min-h-[52px]"
+            style={{
+              backgroundColor: "rgba(255,255,255,0.1)",
+              color: "#fff",
+              border: "1.5px solid rgba(255,255,255,0.3)",
+              fontFamily: "var(--font-bebas-neue)",
+              fontSize: "1.15rem",
+              letterSpacing: "0.08em",
+            }}
+          >
+            GET FREE QUOTE ONLINE
+          </a>
+        </div>
       </section>
     </main>
   );

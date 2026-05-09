@@ -321,14 +321,12 @@ export default async function ServicePage({
       {relatedPosts.length > 0 && (
         <section
           className="w-full py-16"
-          style={{
-            background: "linear-gradient(145deg, #0a3d24 0%, #166534 50%, #1D8A50 100%)",
-          }}
+          style={{ backgroundColor: "#f5f2ec" }}
         >
           <div className="max-w-3xl mx-auto px-4">
             <p
               className="text-xs font-bold uppercase tracking-widest mb-2"
-              style={{ color: "rgba(114,204,53,0.85)" }}
+              style={{ color: "var(--green-mid)" }}
             >
               Related Reading
             </p>
@@ -337,7 +335,7 @@ export default async function ServicePage({
               style={{
                 fontFamily: "var(--font-bebas-neue, 'Bebas Neue', sans-serif)",
                 fontSize: "clamp(1.8rem, 4vw, 2.6rem)",
-                color: "#ffffff",
+                color: "var(--green-deep)",
                 letterSpacing: "0.04em",
                 lineHeight: 1,
               }}
@@ -350,12 +348,13 @@ export default async function ServicePage({
                 <Link
                   key={post.slug}
                   href={`/blog/${post.slug}`}
-                  className="flex items-center justify-between rounded-xl transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
+                  className="flex items-center justify-between rounded-xl transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
                   style={{
                     backgroundColor: "#ffffff",
                     padding: "1.1rem 1.4rem",
                     textDecoration: "none",
-                    boxShadow: "0 4px 20px rgba(0,0,0,0.18)",
+                    border: "1.5px solid rgba(22,101,52,0.10)",
+                    boxShadow: "0 2px 10px rgba(0,0,0,0.07)",
                   }}
                 >
                   <div style={{ flex: 1, minWidth: 0, paddingRight: "1rem" }}>

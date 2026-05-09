@@ -1,7 +1,8 @@
 ---
 title: "Storm Season Prep: Protecting Your Property Before the Next Big One"
 excerpt: "Northeast Ohio gets hit with ice storms, high winds, and heavy snow. Here's how to assess your trees before storm season hits."
-date: "2025-04-14"
+date: "2026-04-23"
+author: "Big Creek Tree Service"
 category: "emergency-storm"
 slug: "storm-season-prep-ne-ohio"
 tags: ["storm prep", "ne ohio", "storm damage", "cleveland ohio", "storm-damage"]

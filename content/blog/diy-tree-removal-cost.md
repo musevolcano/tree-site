@@ -1,7 +1,8 @@
 ---
 title: "The Real Cost of DIY Tree Removal (And Why It's Almost Never Worth It)"
 excerpt: "We break down the hidden costs, liability risks, and equipment requirements that make professional removal the smarter financial decision."
-date: "2025-03-30"
+date: "2026-04-22"
+author: "Big Creek Tree Service"
 category: "tree-care"
 slug: "diy-tree-removal-cost"
 tags: ["diy tree removal", "cleveland ohio", "ne ohio", "tree-removal"]

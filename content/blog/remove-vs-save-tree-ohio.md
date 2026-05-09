@@ -1,7 +1,8 @@
 ---
 title: "When to Remove a Tree vs. Save It: An Ohio Homeowner's Guide"
 excerpt: "Not every damaged tree needs to come down. Learn the signs that indicate removal is necessary versus when treatment can extend your tree's life."
-date: "2025-04-28"
+date: "2026-04-24"
+author: "Big Creek Tree Service"
 category: "tree-care"
 slug: "remove-vs-save-tree-ohio"
 tags: ["tree removal", "tree health", "ne ohio", "tree-removal", "consulting"]

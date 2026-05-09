@@ -1,7 +1,8 @@
 ---
 title: "Emerald Ash Borer in NE Ohio: How to Spot It Before It's Too Late"
 excerpt: "Emerald ash borer is destroying ash trees across Northeast Ohio. Learn the warning signs, what treatment options exist, and when removal is the only answer."
-date: "2026-05-08"
+date: "2026-04-28"
+author: "Big Creek Tree Service"
 category: "tree-care"
 slug: "emerald-ash-borer-ohio"
 tags: ["emerald ash borer", "ne ohio", "tree health", "tree-treatment"]

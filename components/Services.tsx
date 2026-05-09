@@ -273,13 +273,13 @@ export default function Services() {
                   {service.description}
                 </p>
                 <a
-                  href={`/services/${service.slug}`}
+                  href="#contact"
                   className="mt-5 inline-block text-xs font-bold uppercase tracking-widest transition-colors"
                   style={{ color: "var(--green-mid)" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "var(--green-deep)")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "var(--green-mid)")}
                 >
-                  Learn More →
+                  Get a Free Quote →
                 </a>
               </div>
             </div>

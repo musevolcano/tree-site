@@ -117,29 +117,5 @@ export const testimonials = [
   },
 ];
 
-export const blogPosts = [
-  {
-    title: "When to Remove a Tree vs. Save It: An Ohio Homeowner's Guide",
-    excerpt:
-      "Not every damaged tree needs to come down. Learn the signs that indicate removal is necessary versus when treatment can extend your tree's life.",
-    date: "April 28, 2025",
-    slug: "remove-vs-save-tree-ohio",
-    category: "Tree Health",
-  },
-  {
-    title: "Storm Season Prep: Protecting Your Property Before the Next Big One",
-    excerpt:
-      "Northeast Ohio gets hit with ice storms, high winds, and heavy snow. Here's how to assess your trees before storm season hits.",
-    date: "April 14, 2025",
-    slug: "storm-season-prep-ne-ohio",
-    category: "Storm Damage",
-  },
-  {
-    title: "The Real Cost of DIY Tree Removal (And Why It's Almost Never Worth It)",
-    excerpt:
-      "We break down the hidden costs, liability risks, and equipment requirements that make professional removal the smarter financial decision.",
-    date: "March 30, 2025",
-    slug: "diy-tree-removal-cost",
-    category: "Tips & Advice",
-  },
-];
+// Blog posts removed — content/blog/*.mdx is the single source of truth.
+// Use getAllPosts() from @/lib/blog everywhere.

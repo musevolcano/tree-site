@@ -1,4 +1,5 @@
 import { servicesContent, getServiceContent } from "@/data/services-content";
+import { getPostsByTag } from "@/lib/blog";
 import { businessInfo } from "@/data/site-data";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -43,6 +44,8 @@ export default async function ServicePage({
   const relatedServices = servicesContent.filter((s) =>
     service.relatedSlugs.includes(s.slug)
   );
+
+  const relatedPosts = getPostsByTag(slug).slice(0, 3);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -192,6 +195,34 @@ export default async function ServicePage({
           ))}
         </div>
       </section>
+
+      {/* Related blog posts */}
+      {relatedPosts.length > 0 && (
+        <section className="max-w-3xl mx-auto px-4 pb-12">
+          <h2
+            className="mb-5"
+            style={{ fontFamily: "var(--font-bebas-neue, 'Bebas Neue', sans-serif)", fontSize: "1.8rem", color: "var(--green-deep)", letterSpacing: "0.04em" }}
+          >
+            From the Blog
+          </h2>
+          <div className="flex flex-col gap-3">
+            {relatedPosts.map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="flex items-center justify-between p-4 rounded-xl transition-all hover:-translate-y-0.5 hover:shadow-md"
+                style={{ backgroundColor: "#ffffff", border: "1.5px solid rgba(114,204,53,0.2)", textDecoration: "none" }}
+              >
+                <div style={{ flex: 1, minWidth: 0, paddingRight: "1rem" }}>
+                  <p className="font-bold text-sm leading-snug" style={{ color: "var(--green-deep)" }}>{post.title}</p>
+                  <p className="text-xs mt-0.5" style={{ color: "#888" }}>{post.readingTime}</p>
+                </div>
+                <span className="flex-shrink-0 font-bold text-sm" style={{ color: "var(--green-bright)" }}>Read →</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Related services */}
       {relatedServices.length > 0 && (

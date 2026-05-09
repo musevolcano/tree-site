@@ -389,7 +389,7 @@ export default async function ServicePage({
 
       {/* ── RELATED SERVICES ─────────────────────────────────────────── */}
       {relatedServices.length > 0 && (
-        <section className="w-full py-16" style={{ backgroundColor: "#edf4e8" }}>
+        <section className="w-full py-16" style={{ backgroundColor: "#e0d6c2" }}>
           <div className="max-w-3xl mx-auto px-4">
             <p
               className="text-xs font-bold uppercase tracking-widest mb-2"

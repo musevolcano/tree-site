@@ -122,6 +122,11 @@ export function getPostsByCategory(category: BlogCategory): BlogPost[] {
   return getAllPosts().filter((p) => p.category === category);
 }
 
+/** Posts that include `tag` in their tags array, newest first. */
+export function getPostsByTag(tag: string): BlogPost[] {
+  return getAllPosts().filter((p) => p.tags.includes(tag));
+}
+
 /**
  * Related posts: same category, excluding the current slug.
  * Returns up to `limit` posts.

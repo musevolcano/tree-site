@@ -1,6 +1,11 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { testimonials, businessInfo } from "@/data/site-data";
+
+const INTERVAL = 6500;
+const FADE     = 400;
+const VISIBLE  = 3;
+const TOTAL    = testimonials.length;
 
 function StarRating({ count }: { count: number }) {
   return (
@@ -33,7 +38,6 @@ function TestimonialCard({ t }: { t: typeof testimonials[0] }) {
         boxShadow: "0 4px 24px rgba(0,0,0,0.12)",
       }}
     >
-      {/* Stars + verified */}
       <div className="flex items-center justify-between gap-2">
         <StarRating count={t.rating} />
         <span
@@ -44,19 +48,14 @@ function TestimonialCard({ t }: { t: typeof testimonials[0] }) {
           Verified
         </span>
       </div>
-
-      {/* Quote */}
       <p className="text-sm leading-relaxed flex-1" style={{ color: "#333333", fontStyle: "italic" }}>
         &ldquo;{t.text}&rdquo;
       </p>
-
-      {/* Author */}
       <div className="flex items-center gap-3 pt-2" style={{ borderTop: "1px solid rgba(114,204,53,0.2)" }}>
         <div
           className="flex items-center justify-center rounded-full flex-shrink-0 font-bold"
           style={{
-            width: "38px",
-            height: "38px",
+            width: "38px", height: "38px",
             backgroundColor: "var(--green-bright)",
             color: "#ffffff",
             fontFamily: "var(--font-bebas-neue, 'Bebas Neue', sans-serif)",
@@ -76,9 +75,54 @@ function TestimonialCard({ t }: { t: typeof testimonials[0] }) {
 }
 
 export default function Testimonials() {
-  const [active, setActive] = useState(0);
-  const topRow = testimonials.slice(0, 3);
-  const bottomRow = testimonials.slice(3);
+  // startIndex advances by 1 each tick; 3 reviews shown = [start, start+1, start+2] % TOTAL
+  const [startIdx, setStartIdx] = useState(0);
+  const [visible, setVisible]   = useState(true);
+  const touchX = useRef<number | null>(null);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const visibleReviews = Array.from({ length: VISIBLE }, (_, i) => testimonials[(startIdx + i) % TOTAL]);
+
+  function goTo(next: number) {
+    setVisible(false);
+    setTimeout(() => { setStartIdx(next % TOTAL); setVisible(true); }, FADE);
+  }
+
+  function startTimer() {
+    timerRef.current = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => {
+        setStartIdx((prev) => (prev + 1) % TOTAL);
+        setVisible(true);
+      }, FADE);
+    }, INTERVAL);
+  }
+
+  useEffect(() => {
+    startTimer();
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+  }, []);
+
+  function jumpTo(i: number) {
+    if (timerRef.current) clearInterval(timerRef.current);
+    goTo(i);
+    timerRef.current = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => { setStartIdx((prev) => (prev + 1) % TOTAL); setVisible(true); }, FADE);
+    }, INTERVAL);
+  }
+
+  const handleTouchStart = (e: React.TouchEvent) => { touchX.current = e.touches[0].clientX; };
+  const handleTouchEnd   = (e: React.TouchEvent) => {
+    if (touchX.current === null) return;
+    const diff = touchX.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 48) {
+      diff > 0
+        ? jumpTo((startIdx + 1) % TOTAL)
+        : jumpTo((startIdx - 1 + TOTAL) % TOTAL);
+    }
+    touchX.current = null;
+  };
 
   return (
     <section
@@ -106,47 +150,41 @@ export default function Testimonials() {
           </h2>
           <div className="w-16 h-1 mx-auto mt-3 rounded" style={{ backgroundColor: "var(--green-bright)" }} />
           <p className="mt-3 text-sm font-semibold" style={{ color: "rgba(255,255,255,0.6)" }}>
-            5 reviews · All five stars
+            {TOTAL} reviews · All five stars
           </p>
         </div>
 
-        {/* Desktop: 3 top + 2 bottom centered */}
-        <div className="hidden md:block">
-          <div className="grid grid-cols-3 gap-6 mb-6">
-            {topRow.map((t) => (
-              <TestimonialCard key={t.name} t={t} />
-            ))}
-          </div>
-          <div className="grid grid-cols-2 gap-6 max-w-2xl mx-auto">
-            {bottomRow.map((t) => (
-              <TestimonialCard key={t.name} t={t} />
-            ))}
-          </div>
+        {/* 3-card rotating grid — desktop + mobile unified */}
+        <div
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          style={{ opacity: visible ? 1 : 0, transition: `opacity ${FADE}ms ease` }}
+        >
+          {visibleReviews.map((t, i) => (
+            <TestimonialCard key={`${startIdx}-${i}`} t={t} />
+          ))}
         </div>
 
-        {/* Mobile: full carousel */}
-        <div className="md:hidden">
-          <TestimonialCard t={testimonials[active]} />
-          <div className="flex justify-center items-center gap-1 mt-5">
-            {testimonials.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setActive(i)}
-                className="flex items-center justify-center transition-all duration-200"
-                style={{ width: "44px", height: "44px", background: "transparent", padding: 0 }}
-                aria-label={`Review ${i + 1}`}
-              >
-                <span
-                  className="rounded-full block transition-all duration-200"
-                  style={{
-                    width: i === active ? "24px" : "10px",
-                    height: "10px",
-                    backgroundColor: i === active ? "var(--green-bright)" : "rgba(255,255,255,0.35)",
-                  }}
-                />
-              </button>
-            ))}
-          </div>
+        {/* Dots — one per review, shows which is "leading" */}
+        <div className="flex justify-center items-center gap-2 mt-8">
+          {testimonials.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => jumpTo(i)}
+              aria-label={`Review ${i + 1}`}
+              style={{
+                width: i === startIdx ? "28px" : "10px",
+                height: "10px",
+                borderRadius: "999px",
+                backgroundColor: i === startIdx ? "var(--green-bright)" : "rgba(255,255,255,0.35)",
+                border: "none",
+                cursor: "pointer",
+                padding: 0,
+                transition: "all 0.3s ease",
+              }}
+            />
+          ))}
         </div>
 
         {/* Google CTA */}

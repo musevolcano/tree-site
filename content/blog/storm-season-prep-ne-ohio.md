@@ -1,8 +1,8 @@
 ---
 title: "Storm Season Prep: Protecting Your Property Before the Next Big One"
 excerpt: "Northeast Ohio gets hit with ice storms, high winds, and heavy snow. Here's how to assess your trees before storm season hits."
-date: "April 14, 2025"
-category: "Storm Damage"
+date: "2025-04-14"
+category: "emergency-storm"
 slug: "storm-season-prep-ne-ohio"
 social: "⛈️ NE Ohio storm season is no joke.\n\nWe've seen what a single ice storm can do — massive limbs through roofs, downed trees on cars, power lines pulled down. The difference between a $500 trim job and a $15,000 emergency removal is almost always: did anyone look at that tree before the storm hit?\n\nHere's what we check every fall and spring on our own clients' properties:\n\n🔍 Dead or hanging limbs over the house (\"widow makers\")\n🔍 Trees leaning toward structures\n🔍 Cracks in major scaffold branches\n🔍 Trees within striking distance of power lines\n🔍 Root heave or soil movement at the base\n\nIf you spot any of these, don't wait. A pre-storm trim costs a fraction of post-storm emergency cleanup — and we're 24/7 when things do go wrong.\n\n📞 Free pre-storm assessment: 216-551-6445\n🌐 bigcreektreeservice.com\n\n#StormDamage #ClevelandOhio #TreeService #NortheastOhio #StormPrep #BigCreekTreeService #TreeRemoval"
 ---

@@ -39,7 +39,7 @@ const CATEGORIES: BlogCategory[] = [
   "property-business",
 ];
 
-const AUTHOR_LINE = "Joseph Bronczyk · 25+ yrs · NE Ohio";
+const AUTHOR_LINE = "Big Creek Tree Service · 25+ yrs · NE Ohio";
 
 export default async function BlogIndex({
   searchParams,
@@ -259,7 +259,7 @@ export default async function BlogIndex({
               First Post Coming Soon
             </p>
             <p className="text-sm" style={{ color: "#888" }}>
-              Joseph is writing the first guide now — check back shortly.
+              Our team is writing the first guide now — check back shortly.
             </p>
           </div>
         )}
@@ -331,7 +331,7 @@ export default async function BlogIndex({
                     <div className="flex items-center justify-between mt-auto pt-3" style={{ borderTop: "1px solid #f0f0f0" }}>
                       <div>
                         <p className="text-xs font-bold" style={{ color: "#444" }}>
-                          Joseph Bronczyk
+                          {post.author ?? "Big Creek Tree Service"}
                         </p>
                         <p className="text-xs" style={{ color: "#aaa" }}>
                           {post.publishedAt}
@@ -361,7 +361,7 @@ export default async function BlogIndex({
               More posts on the way
             </p>
             <p className="text-sm" style={{ color: "#888" }}>
-              Joseph publishes new guides every few weeks. Check back soon — or call with your question now.
+              Big Creek Tree Service publishes new guides every few weeks. Check back soon — or call with your question now.
             </p>
             <a
               href={businessInfo.phoneHref}
@@ -430,7 +430,7 @@ export default async function BlogIndex({
           Have a tree question right now?
         </p>
         <p className="text-sm mb-5" style={{ color: "rgba(255,255,255,0.7)" }}>
-          Skip the blog — Joseph answers the phone.
+          Skip the blog — we answer the phone.
         </p>
         <a
           href={businessInfo.phoneHref}

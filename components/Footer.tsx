@@ -1,7 +1,9 @@
 import { businessInfo } from "@/data/site-data";
+import { getAllPosts } from "@/lib/blog";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const recentPosts = getAllPosts().slice(0, 3);
 
   return (
     <footer
@@ -11,7 +13,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-8">
 
-          {/* Logo + tagline — matches header exactly */}
+          {/* Logo + tagline */}
           <div>
             <div className="flex flex-col leading-none mb-3">
               <span
@@ -70,6 +72,39 @@ export default function Footer() {
                 {s}
               </a>
             ))}
+          </div>
+
+          {/* Recent Posts */}
+          <div className="flex flex-col gap-3">
+            <p
+              className="text-xs font-bold uppercase tracking-widest"
+              style={{ color: "var(--green-bright)" }}
+            >
+              Recent Posts
+            </p>
+            {recentPosts.length === 0 ? (
+              <p className="text-sm font-semibold" style={{ color: "#888888" }}>
+                Coming soon
+              </p>
+            ) : (
+              recentPosts.map((post) => (
+                <a
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="text-sm font-semibold hover:text-white transition-colors leading-snug max-w-[200px]"
+                  style={{ color: "#dddddd" }}
+                >
+                  {post.title}
+                </a>
+              ))
+            )}
+            <a
+              href="/blog"
+              className="text-xs font-bold mt-1 hover:text-white transition-colors"
+              style={{ color: "var(--green-bright)" }}
+            >
+              View all posts →
+            </a>
           </div>
 
           {/* Contact */}

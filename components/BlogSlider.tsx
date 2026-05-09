@@ -27,18 +27,32 @@ const CATEGORY_LABELS: Record<string, string> = {
 };
 
 const INTERVAL = 6000;
-const FADE     = 400;
+const FADE     = 650;
 
 export default function BlogSlider({ posts }: { posts: PostPreview[] }) {
-  // Group posts into chunks of 3
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  const perPage = isMobile ? 1 : 3;
+
+  // Group posts into chunks based on screen size
   const groups: PostPreview[][] = [];
-  for (let i = 0; i < posts.length; i += 3) groups.push(posts.slice(i, i + 3));
+  for (let i = 0; i < posts.length; i += perPage) groups.push(posts.slice(i, i + perPage));
   const total = groups.length;
 
   const [idx, setIdx]         = useState(0);
   const [visible, setVisible] = useState(true);
   const touchX = useRef<number | null>(null);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  // Reset index when layout changes to avoid out-of-bounds
+  useEffect(() => { setIdx(0); }, [perPage]);
 
   function goTo(next: number) {
     setVisible(false);

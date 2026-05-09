@@ -3,8 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { testimonials, businessInfo } from "@/data/site-data";
 
 const INTERVAL = 6500;
-const FADE     = 400;
-const VISIBLE  = 3;
+const FADE     = 650;
 const TOTAL    = testimonials.length;
 
 function StarRating({ count }: { count: number }) {
@@ -75,13 +74,23 @@ function TestimonialCard({ t }: { t: typeof testimonials[0] }) {
 }
 
 export default function Testimonials() {
-  // startIndex advances by 1 each tick; 3 reviews shown = [start, start+1, start+2] % TOTAL
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  const visibleCount = isMobile ? 2 : 3;
+
   const [startIdx, setStartIdx] = useState(0);
   const [visible, setVisible]   = useState(true);
   const touchX = useRef<number | null>(null);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const visibleReviews = Array.from({ length: VISIBLE }, (_, i) => testimonials[(startIdx + i) % TOTAL]);
+  const visibleReviews = Array.from({ length: visibleCount }, (_, i) => testimonials[(startIdx + i) % TOTAL]);
 
   function goTo(next: number) {
     setVisible(false);
@@ -158,7 +167,7 @@ export default function Testimonials() {
         <div
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          className={`grid gap-6 ${isMobile ? "grid-cols-1" : "grid-cols-3"}`}
           style={{ opacity: visible ? 1 : 0, transition: `opacity ${FADE}ms ease` }}
         >
           {visibleReviews.map((t, i) => (

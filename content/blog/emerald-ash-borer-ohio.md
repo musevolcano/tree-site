@@ -4,6 +4,7 @@ excerpt: "Emerald ash borer is destroying ash trees across Northeast Ohio. Learn
 date: "2026-05-08"
 category: "tree-care"
 slug: "emerald-ash-borer-ohio"
+tags: ["emerald ash borer", "ne ohio", "tree health", "tree-treatment"]
 social: "🐛 If you have ash trees on your property, read this.\n\nEmerald ash borer (EAB) is active RIGHT NOW in NE Ohio — and most homeowners don't catch it until the tree is already too far gone. The beetle hides under the bark, and by the time you see the damage on the outside, you've often lost 30–50% of the tree's canopy.\n\nHere's what to look for this spring:\n\n🔍 S-shaped galleries under peeling bark\n🔍 D-shaped exit holes (about the size of a pencil eraser)\n🔍 Yellowing or thinning canopy starting at the top\n🔍 Heavy woodpecker activity (they're hunting the larvae)\n🔍 Sprouting shoots from the base of the trunk\n\nCaught early? Treatment can save the tree. Caught late? Removal is safer and cheaper than waiting.\n\nBig Creek Tree Service is handling EAB assessments across Cuyahoga, Lake, Geauga, and Summit counties. Call us at 216-551-6445 or visit bigcreektreeservice.com to schedule a free look.\n\n#EmeraldAshBorer #ClevelandOhio #NortheastOhio #TreeHealth #TreeService #ArboristCleveland #BigCreekTreeService #OhioTrees"
 ---
 

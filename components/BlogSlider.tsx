@@ -31,7 +31,12 @@ const FADE     = 650;
 
 export default function BlogSlider({ posts }: { posts: PostPreview[] }) {
   const [isMobile, setIsMobile] = useState(false);
+  const [inView,   setInView]   = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const timerRef   = useRef<ReturnType<typeof setInterval> | null>(null);
+  const touchX     = useRef<number | null>(null);
 
+  // Detect mobile
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768);
     check();
@@ -39,19 +44,28 @@ export default function BlogSlider({ posts }: { posts: PostPreview[] }) {
     return () => window.removeEventListener("resize", check);
   }, []);
 
+  // Watch viewport — only animate when section is ≥40% visible
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.4 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
   const perPage = isMobile ? 1 : 3;
 
-  // Group posts into chunks based on screen size
   const groups: PostPreview[][] = [];
   for (let i = 0; i < posts.length; i += perPage) groups.push(posts.slice(i, i + perPage));
   const total = groups.length;
 
-  const [idx, setIdx]         = useState(0);
+  const [idx,     setIdx]     = useState(0);
   const [visible, setVisible] = useState(true);
-  const touchX = useRef<number | null>(null);
-  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  // Reset index when layout changes to avoid out-of-bounds
+  // Reset index when layout switches mobile↔desktop
   useEffect(() => { setIdx(0); }, [perPage]);
 
   function goTo(next: number) {
@@ -62,8 +76,12 @@ export default function BlogSlider({ posts }: { posts: PostPreview[] }) {
   function advance() { goTo((idx + 1) % total); }
   function retreat() { goTo((idx - 1 + total) % total); }
 
-  // Auto-rotate
+  // Auto-rotate ONLY while section is in view
   useEffect(() => {
+    if (!inView) {
+      if (timerRef.current) clearInterval(timerRef.current);
+      return;
+    }
     timerRef.current = setInterval(() => {
       setVisible(false);
       setTimeout(() => {
@@ -72,22 +90,11 @@ export default function BlogSlider({ posts }: { posts: PostPreview[] }) {
       }, FADE);
     }, INTERVAL);
     return () => { if (timerRef.current) clearInterval(timerRef.current); };
-  }, [total]);
+  }, [inView, total]);
 
-  // Reset timer when user taps a dot
-  function jumpTo(i: number) {
-    if (timerRef.current) clearInterval(timerRef.current);
-    goTo(i);
-    timerRef.current = setInterval(() => {
-      setVisible(false);
-      setTimeout(() => {
-        setIdx((prev) => (prev + 1) % total);
-        setVisible(true);
-      }, FADE);
-    }, INTERVAL);
-  }
+  // Dot tap — just jump; existing in-view timer continues
+  function jumpTo(i: number) { goTo(i); }
 
-  // Touch / swipe
   const handleTouchStart = (e: React.TouchEvent) => { touchX.current = e.touches[0].clientX; };
   const handleTouchEnd   = (e: React.TouchEvent) => {
     if (touchX.current === null) return;
@@ -99,7 +106,7 @@ export default function BlogSlider({ posts }: { posts: PostPreview[] }) {
   const current = groups[idx] ?? [];
 
   return (
-    <div onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+    <div ref={sectionRef} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
       {/* Cards */}
       <div
         className="grid grid-cols-1 md:grid-cols-3 gap-6"
@@ -175,7 +182,6 @@ export default function BlogSlider({ posts }: { posts: PostPreview[] }) {
         ))}
       </div>
 
-      {/* Slide counter */}
       <p className="text-center mt-3 text-xs" style={{ color: "#aaa" }}>
         {idx + 1} of {total}
       </p>

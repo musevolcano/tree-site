@@ -75,12 +75,26 @@ function TestimonialCard({ t }: { t: typeof testimonials[0] }) {
 
 export default function Testimonials() {
   const [isMobile, setIsMobile] = useState(false);
+  const [inView,   setInView]   = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768);
     check();
     window.addEventListener("resize", check);
     return () => window.removeEventListener("resize", check);
+  }, []);
+
+  // Watch viewport — only animate when section is ≥40% visible
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.4 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
   }, []);
 
   const visibleCount = isMobile ? 2 : 3;
@@ -97,7 +111,12 @@ export default function Testimonials() {
     setTimeout(() => { setStartIdx(next % TOTAL); setVisible(true); }, FADE);
   }
 
-  function startTimer() {
+  // Auto-rotate ONLY while section is in view
+  useEffect(() => {
+    if (!inView) {
+      if (timerRef.current) clearInterval(timerRef.current);
+      return;
+    }
     timerRef.current = setInterval(() => {
       setVisible(false);
       setTimeout(() => {
@@ -105,21 +124,11 @@ export default function Testimonials() {
         setVisible(true);
       }, FADE);
     }, INTERVAL);
-  }
-
-  useEffect(() => {
-    startTimer();
     return () => { if (timerRef.current) clearInterval(timerRef.current); };
-  }, []);
+  }, [inView]);
 
-  function jumpTo(i: number) {
-    if (timerRef.current) clearInterval(timerRef.current);
-    goTo(i);
-    timerRef.current = setInterval(() => {
-      setVisible(false);
-      setTimeout(() => { setStartIdx((prev) => (prev + 1) % TOTAL); setVisible(true); }, FADE);
-    }, INTERVAL);
-  }
+  // Dot tap — just jump; existing in-view timer continues
+  function jumpTo(i: number) { goTo(i); }
 
   const handleTouchStart = (e: React.TouchEvent) => { touchX.current = e.touches[0].clientX; };
   const handleTouchEnd   = (e: React.TouchEvent) => {
@@ -135,6 +144,7 @@ export default function Testimonials() {
 
   return (
     <section
+      ref={sectionRef}
       id="reviews"
       className="w-full py-16 px-4"
       style={{ backgroundColor: "var(--green-deep)" }}

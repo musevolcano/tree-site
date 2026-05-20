@@ -220,7 +220,7 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={service.slug}
-              className={`group rounded-xl flex flex-col transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl${index === services.length - 1 && services.length % 2 !== 0 ? " col-span-2 sm:col-span-1" : ""}`}
+              className={`group rounded-xl flex flex-col transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl${index === services.length - 1 && services.length % 2 !== 0 ? " col-span-2 lg:col-span-1" : ""}`}
               style={{
                 backgroundColor: "#ffffff",
                 border: "2px solid rgba(255,255,255,0.9)",

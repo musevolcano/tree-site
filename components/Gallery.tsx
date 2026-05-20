@@ -110,11 +110,56 @@ export default function Gallery() {
           </p>
         </div>
 
+        {/* Mobile: horizontal scroll carousel */}
         <div
-          className="grid gap-3"
+          className="flex md:hidden gap-3 overflow-x-auto pb-2"
           style={{
-            gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
+            scrollSnapType: "x mandatory",
+            WebkitOverflowScrolling: "touch",
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
           }}
+        >
+          {photos.map((photo, i) => (
+            <div
+              key={i}
+              className="relative flex-shrink-0 overflow-hidden rounded-lg"
+              style={{ width: "82vw", aspectRatio: "4/3", scrollSnapAlign: "center" }}
+            >
+              <Image
+                src={photo.src}
+                alt={photo.alt}
+                fill
+                sizes="82vw"
+                className="object-cover"
+                loading={i < 2 ? "eager" : "lazy"}
+              />
+              <div
+                className="absolute inset-0 flex items-end"
+                style={{ background: "linear-gradient(to top, rgba(0,40,0,0.65) 0%, transparent 55%)" }}
+              >
+                <span
+                  style={{
+                    fontFamily: "var(--font-dm-sans, 'DM Sans', sans-serif)",
+                    fontSize: "0.72rem",
+                    fontWeight: 700,
+                    letterSpacing: "0.08em",
+                    textTransform: "uppercase",
+                    color: "#fff",
+                    padding: "0.75rem",
+                  }}
+                >
+                  {photo.caption}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop: responsive grid */}
+        <div
+          className="hidden md:grid gap-3"
+          style={{ gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))" }}
         >
           {photos.map((photo, i) => (
             <div
@@ -126,16 +171,13 @@ export default function Gallery() {
                 src={photo.src}
                 alt={photo.alt}
                 fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                sizes="(max-width: 1024px) 50vw, 33vw"
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
                 loading={i < 4 ? "eager" : "lazy"}
               />
               <div
                 className="absolute inset-0 flex items-end opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                style={{
-                  background:
-                    "linear-gradient(to top, rgba(0,40,0,0.7) 0%, transparent 60%)",
-                }}
+                style={{ background: "linear-gradient(to top, rgba(0,40,0,0.7) 0%, transparent 60%)" }}
               >
                 <span
                   style={{

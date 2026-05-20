@@ -8,18 +8,18 @@ const photos = [
   },
   {
     src: "/images/tree-removal-crew-northeast-ohio.jpeg",
-    alt: "Tree removal crew at work in Northeast Ohio",
-    caption: "Full-Service Crew",
+    alt: "Heavy equipment tree service in Northeast Ohio — Big Creek Tree Service",
+    caption: "Heavy Equipment",
   },
   {
     src: "/images/stump-grinding-residential-cleveland.jpeg",
-    alt: "Stump grinding at residential property in Cleveland",
-    caption: "Stump Grinding",
+    alt: "Fallen tree removal at residential property in Cleveland",
+    caption: "Fallen Tree Removal",
   },
   {
     src: "/images/emergency-tree-service-storm-damage.jpeg",
-    alt: "Emergency storm damage tree removal — Big Creek Tree Service",
-    caption: "Storm Damage Response",
+    alt: "Professional chainsaw and tree removal equipment — Big Creek Tree Service",
+    caption: "Tools of the Trade",
   },
   {
     src: "/images/land-clearing-green-site-ohio.jpeg",
@@ -28,8 +28,8 @@ const photos = [
   },
   {
     src: "/images/tree-work-crew-cleveland.jpeg",
-    alt: "Big Creek Tree Service crew completing tree removal in Cleveland",
-    caption: "Professional Crew",
+    alt: "Complete tree removal — sectioned trunk cleared from Cleveland property",
+    caption: "Complete Tree Removal",
   },
   {
     src: "/images/stump-grinding-after-removal-ohio.jpeg",
@@ -43,8 +43,8 @@ const photos = [
   },
   {
     src: "/images/arborist-tree-work-cleveland.jpeg",
-    alt: "ISA-certified arborist tree work in Cleveland area",
-    caption: "Arborist Services",
+    alt: "Emergency fallen tree removal after tree crushed structure — Cleveland area",
+    caption: "Emergency Fallen Tree",
   },
   {
     src: "/images/property-tree-service-ohio.jpeg",

@@ -2,8 +2,11 @@ import { businessInfo } from "@/data/site-data";
 
 const items = [
   { icon: "⭐", label: "5-Star Google Reviews", href: businessInfo.googleReviews },
+  { icon: "✓", label: "ISA Certified Arborist" },
   { icon: "✓", label: "Licensed & Insured" },
+  { icon: "✓", label: "15+ Years Experience" },
   { icon: "✓", label: "Free Estimates" },
+  { icon: "🚨", label: "24/7 Emergency Response" },
   { icon: "📍", label: "NE Ohio · 40-Mile Radius" },
 ];
 

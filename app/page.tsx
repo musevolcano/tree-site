@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import TrustBar from "@/components/TrustBar";
 import Services from "@/components/Services";
 import About from "@/components/About";
+import Gallery from "@/components/Gallery";
 import Testimonials from "@/components/Testimonials";
 import BlogPreview from "@/components/BlogPreview";
 import Contact from "@/components/Contact";
@@ -173,6 +174,7 @@ export default function Home() {
         <TrustBar />
         <Services />
         <About />
+        <Gallery />
         <Testimonials />
         <BlogPreview />
         <Contact />

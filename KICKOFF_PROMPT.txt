@@ -1,0 +1,35 @@
+I'm rebuilding bigcreektreeservice.com from scratch. The current Hostinger site is JavaScript-rendered and invisible to Googlebot, which is costing us leads. Project context lives in ./CLAUDE.md in this folder — read it first.
+
+Big Creek Tree Service is a Northeast Ohio tree service. B2B priority targets are property managers, HOAs, developers, and insurance adjusters within 40 miles of Cleveland. Owner is Joseph (my brother). I operate this on a 10% commission deal. Contact: joe@bigcreektreeservice.com, (216) 551-6445.
+
+Stack
+Next.js on Vercel, static export or ISR only, never client-side-only on indexable pages. Tailwind CSS. shadcn/ui where applicable.
+
+Skills installed and to invoke
+- big-creek-brand for all voice and copy decisions
+- seo-technical for crawler visibility, LocalBusiness JSON-LD, Core Web Vitals targets
+- copy-direct-response for landing page structure and CTAs
+- ui-ux-pro-max for design system, components, layout
+- gstack workflow skills as needed — start with /office-hours to surface my assumptions, then /design-consultation to build the design system
+
+What I want from this session
+A complete production plan. No code yet. Specifically:
+1. Site map. Every page, its purpose, ranked by combined SEO impact and conversion impact.
+2. Design system. Type scale, color tokens, spacing, component primitives, photography direction. No stock-photo generic tree workers. Output DESIGN.md in this directory.
+3. Per-page content brief. For each page: hero pattern, sections in order, primary CTA, secondary CTA, required SEO elements (LocalBusiness or Service schema, meta title, meta description, Open Graph image dimensions). Output PAGES.md.
+4. Tech architecture. Routing pattern, data sources, image strategy (sizes, formats, lazy loading), performance budget per page, Core Web Vitals targets.
+5. Launch checklist. Google Search Console verification, sitemap submission, Google Business Profile audit, citation cleanup (NAP consistency), schema validation, mobile and Core Web Vitals validation, redirect plan from old Hostinger URLs.
+
+Output two files: DESIGN.md and PLAN.md. Then summarize both as a single readable response so I can review before we move into /design-shotgun for variants.
+
+Constraints to honor
+- Mobile-first
+- LCP under 2.5 seconds
+- Phone (216) 551-6445 in the header on every page
+- ISA-certified arborist and fully insured signals visible on every page
+- Service area "40-mile radius of Cleveland, OH" stated explicitly somewhere on every page
+- No popups, no live chat, no stock photos of generic tree workers
+- No em dashes or hyphens as separators in any copy
+- No exclamation marks except in storm-emergency CTAs
+
+Begin with /office-hours to surface and challenge any assumptions I'm making before you start planning. After that, proceed to /design-consultation, then write the two files.

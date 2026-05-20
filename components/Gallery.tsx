@@ -44,7 +44,7 @@ const photos = [
   {
     src: "/images/arborist-tree-work-cleveland.jpeg",
     alt: "Emergency fallen tree removal after tree crushed structure — Cleveland area",
-    caption: "Emergency Fallen Tree",
+    caption: "24/7 Emergency Response",
   },
   {
     src: "/images/property-tree-service-ohio.jpeg",
